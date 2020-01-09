@@ -6,7 +6,7 @@ import django_heroku
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-ALLOWED_HOSTS = os.environ.path('allowed_hosts')
+ALLOWED_HOSTS = os.environ.get('allowed_hosts')
 
 
 # Application definition
