@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+	{% for blog_post in posts %}
+		<div class="post-preview-cont">
+			<p class="preview-title"><a class="url-link" href= "{% url 'specific_post_view' pk=blog_post.pk %}">{{blog_post.title}}</a></p>
+			<img class="preview-img" src="{{ blog_post.get_header_url }}">
+			<div class="post-preview-text">
+				<p class="preview-summary">{{blog_post.summary}}</p>
+				<p class="preview-time">Posted <time datetime="{{blog_post.created_at}}">{{ blog_post.get_str_date }} </time></p>
+			</div>
+		</div>
+	{% endfor %}
+
+ <div class="pagination">
+ 	<span class = "step-links">
+ 		{% if posts.has_previous %}
+ 			<a class="nav-link" href="?page=1">&laquo;First&raquo;</a>
+ 			<a class="nav-link" href="?page={{ contacts.previous_page_number }}">&lt;Previous&gt;</a>
+ 		{% endif %}
+
+ 		<span class="current">
+ 			{{posts.number}} of {{posts.paginator.num_pages}}
+ 		</span>
+
+ 		{% if posts.has_next %}
+ 			<a class="nav-link" href="?page={{ posts.next_page_number }}">&lt;Next&gt;</a>
+ 			<a class="nav-link" href="?page={{ posts.paginator.num_pages }}">&laquo;Last&raquo;</a>
+ 		{% endif %}
+ 	</span>
+ </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>Matt Goldeck</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% block extrahead %}{% endblock %}
+</head>
+<body>
+	<div class="container">
+		<div class='content'>
+			<h1 class="header-text"><a class="nav-link" href="{% url 'home_view' %}">/matt_goldeck/</a></h1>
+			<div>{% block content %}{% endblock %}</div>
+		</div>
+		<div class="footer-wrapper">
+			<div class="footer">
+				<ul>
+					<li><a href="{% url 'home_view' %}">/home/</a></li>
+					<li><a href="{% url 'blog_landing_view' %}">/blog/</a></li>
+					<li><a href="https://github.com/matt-goldeck">/git-hub/</a></li>
+					<li> | </li>
+					<li> "{{quote.text}}" - {{quote.author_name}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

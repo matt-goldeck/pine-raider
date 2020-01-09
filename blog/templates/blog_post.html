@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/post_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div>
+	<h1 class="title-text">{{blog_post.title}}</h1>
+	<p class="preview-time">Posted <time datetime="{{blog_post.created_at}}">{{ blog_post.get_str_date }} </time></p>
+	<img class="header-img" src="{{ blog_post.get_header_url }}">
+	<h3>{{blog_post.heading}}</h3>
+	<div class="markdown-box">
+		{{blog_post.formatted_markdown|safe}}
+	</div>
+
+</div>
+
+{% endblock %}

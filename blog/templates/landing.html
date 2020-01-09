@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+{% block content %}
+	<div>
+		<div class='landing-section'>
+			<div>
+				{% load static %}
+				<img class="about-pic" src="{% static 'img/matt_landing.jpg' %}">
+				<div class='about-text'>
+					<p>Matt Goldeck is a software engineer, whatever that means.</p>
+					<p>He lives in Hoboken, New Jersey and works for <a class="nav-link" href="https://www.nestio.com/">Nestio</a> in New York City, New York.</p>
+					<p>Hobbies include building weird things, looking goofy, and running.</p>
+					<div class='social-list'>
+						<ul class='soc-ul'>
+							<li class='soc-li'><img class='social-icon' src="{% static 'img/github.png' %}"> <a class='url-link' href="https://github.com/matt-goldeck">mattgoldeck</a></li>
+							<li class='soc-li'><img class='social-icon' src="{% static 'img/instagram.png' %}"> <a class='url-link' href="https://www.instagram.com/mattgoldeck/">matt-goldeck</a></li>
+							<li class='soc-li'><img class='social-icon' src="{% static 'img/linkedin.png' %}"> <a class='url-link' href="https://www.linkedin.com/in/matt-goldeck/"> Matt Goldeck</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='blog-section'>
+			<h3 class='sub-header'>/featured_garbage/</h3>
+			<div>
+				{% for blog_post in posts %}
+					<div class="post-preview-cont">
+						<p class="preview-title"><a class="url-link" href= "{% url 'specific_post_view' pk=blog_post.pk %}">{{blog_post.title}}</a></p>
+						<img class="preview-img" src="{{ blog_post.get_header_url }}">
+						<div class="post-preview-text">
+							<p class="preview-summary">{{blog_post.summary}}</p>
+							<p class="preview-time">Posted <time datetime="{{blog_post.created_at}}">{{ blog_post.get_str_date }} </time></p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>	
+	</div>
+{% endblock %}

@@ -1,0 +1,169 @@
+.header-text {
+	text-align:center;
+}
+
+/* About */
+.landing-section {
+	margin-bottom:100px;
+}
+
+.about-pic {
+	width:100%;
+    max-width:350px;
+    margin-right:20px;
+    border-radius:5px;
+    border: 2px solid;
+    margin-bottom:5px;
+  	margin-left: auto;
+  	margin-right: auto;
+  	display: block;
+}
+.about-text {
+	padding-top:10px;
+	text-align:center;
+}
+
+/* Blog stuff */
+.sub-header {
+	text-align:center;
+}
+
+.blog-section {
+	margin-bottom:100px;
+	margin-top:50px;
+}
+
+.post-preview-cont {
+	margin-bottom:50px;
+	text-align:center;
+	max-width:700px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.preview-img {
+	width:100%;
+	max-width:350px;
+	margin-right:20px;
+	border-radius:5px;
+	border: 2px solid;
+	margin-bottom:20px;
+	margin-left: auto;
+  	margin-right: auto;
+  	display: block;
+}
+
+.preview-title {
+	font-weight:bold;
+	line-height: 1;
+}
+
+.preview-summary {
+	line-height: 1.2;
+}
+.preview-time {
+	font-size: 15px; 
+}
+
+/* Social garbage */
+.social-icon {
+	width:100%;
+	max-width:20px;
+	vertical-align: middle;
+}
+
+.soc-ul {
+	list-style: none;
+}
+
+.soc-li {
+	display: inline-block;
+}
+
+a.url-link:link {
+	color: #46704e;
+}
+a.url-link:visited
+{
+   color: #46704e;
+}
+
+/* Home link/logo */
+
+a.nav-link:link
+{
+   color: #46704e;
+   text-decoration: none;
+}
+a.nav-link:visited
+{
+   color: #46704e;
+   text-decoration: none;
+}
+a.nav-link:hover
+{
+   color: #46704e;
+   text-decoration: none;
+}
+a.nav-link:active
+{
+   color: #46704e;
+   text-decoration: none;
+}
+
+/* Lots of unecessary footer styling */
+.footer ul {
+	list-style: none;
+}
+
+.footer li {
+	display: inline-block;
+}
+
+.footer a:link {
+	color: #46704e;
+	text-decoration: none;
+}
+
+.footer a:visited {
+	color: #46704e;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	color: #46704e;
+	text-decoration: none;
+}
+
+.footer a:active {
+	color: #46704e;
+	text-decoration: none;
+}
+
+.error-box {
+	text-align:center;
+}
+
+.pagination {
+	text-align:center;
+	margin-left: auto;
+  	margin-right: auto;
+  	display: block;
+}
+.container {
+ 	margin: 5% auto; 
+ 	color: #444444; 
+ 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+ 	font-size: 20px; 
+ 	line-height: 1.8; 
+ 	text-shadow: 0 1px 0 #ffffff; 
+ 	max-width: 65%;
+ }
+
+.footer {
+    text-align: center;
+}
+
+body {
+	background: #EEEEEE; 
+}
