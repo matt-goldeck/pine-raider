@@ -1,11 +1,12 @@
 import os
 
 import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+DEBUG = os.environ.get('DEBUG')
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
 
 
@@ -54,21 +55,11 @@ WSGI_APPLICATION = 'pineraider.wsgi.application'
 
 
 # Database
-
-DATABASES = {
-    'default': {
-        'ENGINE': os.environ.get('DB_ENGINE'),
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
-    }
-}
-
+# TODO: Some logic so I can still run this locally
+DATABASES = {}
+DATABASES['default']: dj_database_url.config()
 
 # Password validation
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
