@@ -78,6 +78,8 @@
 
 .soc-li {
 	display: inline-block;
+	margin-left: auto;
+  	margin-right: auto;
 }
 
 a.url-link:link {
@@ -112,6 +114,9 @@ a.nav-link:active
 }
 
 /* Lots of unecessary footer styling */
+.footer {
+	line-height:.1;
+}
 .footer ul {
 	list-style: none;
 }
@@ -139,7 +144,9 @@ a.nav-link:active
 	color: #46704e;
 	text-decoration: none;
 }
-
+.quote {
+	font-size:15px;
+}
 .error-box {
 	text-align:center;
 }

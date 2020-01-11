@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'pineraider.wsgi.application'
 # Database
 # TODO: Some logic so I can still run this locally
 DATABASES = {}
-DATABASES['default']: dj_database_url.config()
+DATABASES['default']: dj_database_url.config(conn_max_age=600)
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

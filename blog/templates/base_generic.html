@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class='content'>
 			<h1 class="header-text"><a class="nav-link" href="{% url 'home_view' %}">/matt_goldeck/</a></h1>
-			<div>{% block content %}{% endblock %}</div>
+			{% block content %}{% endblock %}
 		</div>
 		<div class="footer-wrapper">
 			<div class="footer">
@@ -20,9 +20,8 @@
 					<li><a href="{% url 'home_view' %}">/home/</a></li>
 					<li><a href="{% url 'blog_landing_view' %}">/blog/</a></li>
 					<li><a href="https://github.com/matt-goldeck">/git-hub/</a></li>
-					<li> | </li>
-					<li> "{{quote.text}}" - {{quote.author_name}}</li>
 				</ul>
+				<p class='quote'>"{{quote.text}}" - {{quote.author_name}}</p>
 			</div>
 		</div>
 	</div>
