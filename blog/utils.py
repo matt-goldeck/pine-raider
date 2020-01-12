@@ -1,15 +1,11 @@
-import os, os.path
+import boto3
 
 from django.conf import settings
 
 def get_standard_image_name(instance, filename):
 	"""Return new filename for a blog image in format"""
 	post = instance.blog_post
-
-	# Get count of all files currently related to this blog_post
-	post_images = [name for name in os.listdir("{}/blog_images/".format(settings.MEDIA_ROOT))
-				   if name.split('-')[0] == str(post.pk)]
-	degree = len(post_images)
+	degree = post.images.count()
 
 	ext = filename.split('.')[-1]
 	filename = "{post_key}-{degree}.{ext}".format(
@@ -17,4 +13,4 @@ def get_standard_image_name(instance, filename):
 		degree=degree, 
 		ext=ext)
 
-	return os.path.join('blog_images/', filename)
+	return "blog_images/{}/{}".format(post.pk, filename)

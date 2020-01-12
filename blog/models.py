@@ -45,24 +45,6 @@ class BlogImage(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
-	def save(self, *args, **kwargs):
-		instance = None
-
-		try:
-			instance = BlogImage.objects.get(id=self.id)
-		except BlogImage.DoesNotExist:
-			pass
-
-		# If uploading new image, try to delete the old image
-		if instance and instance.image and self.image:
-			try:
-				os.remove(os.path.join(settings.MEDIA_ROOT, instance.image.name))
-			except FileNotFoundError:
-				pass
-			instance.image.delete()
-
-		super(BlogImage, self).save(*args, **kwargs)
-
 	def get_url(self):
 		return self.image.url
 

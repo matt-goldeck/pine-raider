@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 handler404 = blog_views.BlogView.as_view()
 handler500 = lambda request: blog_views.ServerErrorView.as_view()(request)
