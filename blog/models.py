@@ -6,7 +6,6 @@ from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 
 from pineraider import settings
-from blog.utils import get_standard_image_name
 
 
 class BlogPost(models.Model):
@@ -40,6 +39,22 @@ class BlogPost(models.Model):
 
 class BlogImage(models.Model):
 	blog_post = models.ForeignKey('BlogPost', on_delete=models.CASCADE, related_name='images')
+
+	def get_standard_image_name(instance, filename):
+		if instance.pk:
+			existing = BlogImage.objects.get(pk=instance.pk)
+			return existing.image.name
+
+		post = instance.blog_post
+		degree = post.images.count()
+
+		ext = filename.split('.')[-1]
+		filename = "{post_key}-{degree}.{ext}".format(
+			post_key=post.pk, 
+			degree=degree, 
+			ext=ext)
+
+		return "blog_images/{}/{}".format(post.pk, filename)
 	image = models.ImageField(upload_to=get_standard_image_name)
 
 	created_at = models.DateTimeField(auto_now_add=True)
