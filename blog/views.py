@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.views import View
@@ -26,7 +27,8 @@ class HomeView(BlogView):
 	"""Homepage; landing posts + preview image urls"""
 	def _get_context(self, request):
 		context = {
-			'posts': BlogPost.objects.filter(display_on_landing=True).order_by('-created_at').all(),
+			'posts': BlogPost.objects.public().filter(
+				display_on_landing=True).order_by('-created_at').all(),
 			'quote': self._get_random_quote()
 		}
 
@@ -43,6 +45,10 @@ class PostView(BlogView):
 		if key:
 			try:
 				blog_post = BlogPost.objects.get(pk=key)
+				# Don't reveal secrets
+				if not blog_post.display_publically:
+					raise PermissionDenied
+
 			except BlogPost.DoesNotExist:
 				pass
 
@@ -60,7 +66,7 @@ class PostView(BlogView):
 class BlogLandingView(BlogView):
 	"""View for the blog landing; display all posts, paginate"""
 	def _get_context(self, request):
-		blog_posts = BlogPost.objects.order_by('-created_at').all()
+		blog_posts = BlogPost.objects.public().order_by('-created_at').all()
 		paginator = Paginator(blog_posts, 5)
 
 		page = request.GET.get('page')
