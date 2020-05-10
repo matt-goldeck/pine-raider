@@ -54,7 +54,7 @@ class BlogPost(models.Model):
         return header_img.get_url()
 
     def get_str_date(self):
-        return self.created_at.strftime("%B %-d %Y")
+        return self.created_at.strftime("%B %d %Y")
 
 
 class BlogImage(models.Model):
@@ -75,6 +75,7 @@ class BlogImage(models.Model):
             ext=ext)
 
         return "blog_images/{}/{}".format(post.pk, filename)
+
     image = models.ImageField(upload_to=get_standard_image_name)
 
     created_at = models.DateTimeField(auto_now_add=True)
