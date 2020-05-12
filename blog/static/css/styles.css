@@ -112,10 +112,11 @@ a.nav-link:active
 
 /* Lots of unecessary footer styling */
 .footer {
-	line-height:.1;
+	text-align: center;
 }
 .footer ul {
 	list-style: none;
+	margin-bottom:0px;
 }
 
 .footer li {
@@ -142,6 +143,7 @@ a.nav-link:active
 	text-decoration: none;
 }
 .quote {
+	margin-top:0px;
 	font-size:15px;
 }
 .error-box {
@@ -164,10 +166,6 @@ a.nav-link:active
  	text-shadow: 0 1px 0 #ffffff; 
  	max-width: 65%;
  }
-
-.footer {
-    text-align: center;
-}
 
 body {
 	background: #FAFAFA; 
